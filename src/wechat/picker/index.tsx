@@ -3,6 +3,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 export default ({ mode, value, range, ...props }: any) => {
+  // eslint-disable-next-line no-shadow
   const handleChange = (value: any) => {
     props?.onChange?.({ detail: { value } });
   };
@@ -15,7 +16,8 @@ export default ({ mode, value, range, ...props }: any) => {
         mode={'date'}
         data={range}
         {...props}
-        onChange={value =>
+        // eslint-disable-next-line no-shadow
+        onChange={(value) =>
           handleChange(value && dayjs(value).format('YYYY-MM-DD'))
         }
       />
@@ -27,8 +29,9 @@ export default ({ mode, value, range, ...props }: any) => {
       data={range}
       value={value?.map((v: any, i: any) => range[i]?.[v]?.value)}
       {...props}
-      onChange={v => {
+      onChange={(v) => {
         handleChange(
+          // eslint-disable-next-line no-shadow
           v?.map((v, i) => range[i].findIndex(({ value }: any) => value === v))
         );
       }}

@@ -8,7 +8,7 @@ export default ({ style, onInput, onChange, ...props }: any) => {
       textAlignVertical={'top'}
       style={{ ...styles.input, ...style }}
       {...props}
-      onChangeText={text => {
+      onChangeText={(text) => {
         onInput?.({ target: { value: text } });
         onChange?.(text);
       }}

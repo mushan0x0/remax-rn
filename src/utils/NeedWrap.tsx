@@ -3,7 +3,7 @@ import React from 'react';
 export default ({
   wrap: Wrap,
   children,
-  wrapProps: {style, ...wrapProps} = {style: {}},
+  wrapProps: { style, ...wrapProps } = { style: {} },
   need,
 }: any) => {
   return need ? (

@@ -16,8 +16,6 @@ import {
 import styles from './index.less';
 import NeedWrap from '../../utils/NeedWrap';
 import transformStyles from '../../utils/transformStyles';
-// @ts-ignore
-import isNumber from 'is-number';
 import { Grayscale } from 'react-native-color-matrix-image-filters';
 import { usePortal } from 'parsec-hooks';
 import { rpxToPx } from '@kqinfo/ui';
@@ -78,7 +76,6 @@ export default React.memo(
     ['is-text']: isText = false,
     className = {},
     onLayout,
-    ...props
   }: any) => {
     const parentStyle = useContext(extendStyle);
     style = style instanceof Array ? Object.assign({}, ...style) : style;
@@ -110,7 +107,7 @@ export default React.memo(
         ) : (
           <ChildrenWrap>{children}</ChildrenWrap>
         ),
-      [children],
+      [children]
     );
     style = useMemo(() => {
       const obj = style instanceof Array ? Object.assign({}, ...style) : style;
@@ -185,6 +182,7 @@ export default React.memo(
           </NeedWrap>
         </extendStyle.Provider>
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
       activeOpacity,
       children,
@@ -200,5 +198,5 @@ export default React.memo(
     ]);
     usePortal(useCallback(() => (isFixed ? render : <></>), [isFixed, render]));
     return isFixed ? null : render;
-  },
+  }
 );

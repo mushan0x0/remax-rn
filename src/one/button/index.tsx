@@ -9,8 +9,9 @@ export default ({ onTap, children, disabled, style }: any) => {
       className={styles.btn}
       style={{
         ...style,
-        ...(disabled && styles.disabled)
-      }}>
+        ...(disabled && styles.disabled),
+      }}
+    >
       {children}
     </View>
   );

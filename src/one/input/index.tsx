@@ -6,11 +6,7 @@ import { rpxToPx } from '@kqinfo/ui';
 import { extendStyle } from '../view';
 
 const Input = ({ style, ...props }: any) => {
-  const {
-    fontSize = rpxToPx(26),
-    textAlign,
-    ...parentStyle
-  } = useContext(extendStyle);
+  const { fontSize = rpxToPx(26), textAlign } = useContext(extendStyle);
   Object.keys(style).forEach((key) => {
     if (/em/i.test(style[key])) {
       const number = style[key].replace(/em/i, '');
@@ -34,7 +30,7 @@ export default forwardRef(
       type,
       ...props
     }: any,
-    ref,
+    ref
   ) => {
     if (type === 'number') {
       type = 'number-pad';
@@ -71,5 +67,5 @@ export default forwardRef(
         />
       </View>
     );
-  },
+  }
 );

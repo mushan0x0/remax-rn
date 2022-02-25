@@ -4,8 +4,8 @@ import gcoord from 'gcoord';
 const fn = () =>
   GetLocation.getCurrentPosition({
     enableHighAccuracy: true,
-    timeout: 15000
-  }).then(result => {
+    timeout: 15000,
+  }).then((result) => {
     const [longitude, latitude] = gcoord.transform(
       [result.longitude, result.latitude],
       gcoord.WGS84,

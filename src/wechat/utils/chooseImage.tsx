@@ -43,7 +43,7 @@ export default ({ sourceType }: WechatMiniprogram.ChooseImageOption) => {
           options: ['拍照', '从相册选择', '取消'],
           cancelButtonIndex: 2,
         },
-        select,
+        select
       );
     }
   });

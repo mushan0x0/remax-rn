@@ -1,4 +1,5 @@
 import { useIsFocused } from '@react-navigation/native';
+// @ts-ignore
 import { usePageEvent } from 'remax/macro';
 import { useEffect } from 'react';
 import { AppState, AppStateStatus } from 'react-native';
@@ -11,6 +12,7 @@ const Fn: typeof usePageEvent = (eventName, callback) => {
     } else if (eventName === 'onLoad') {
       callback();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventName, isFocused]);
   useEffect(() => {
     const fn = (state: AppStateStatus) => {
@@ -22,6 +24,7 @@ const Fn: typeof usePageEvent = (eventName, callback) => {
     return () => {
       AppState.removeEventListener('change', fn);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused]);
 };
 
