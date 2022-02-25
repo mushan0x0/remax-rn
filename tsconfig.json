@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "remax-rn": ["./src/index"]
+      "remax-rn": ["./src/index"],
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

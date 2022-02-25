@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View 基本渲染 1`] = `
+<View
+  activeOpacity={0.5}
+  className="view"
+  onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": undefined,
+      "display": "flex",
+      "flexDirection": "column",
+      "flexWrap": "nowrap",
+      "opacity": undefined,
+      "position": undefined,
+    }
+  }
+>
+  <Text
+    className="view"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": 26,
+        "fontWeight": undefined,
+        "lineHeight": 37.18000000000001,
+        "textAlign": undefined,
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    233
+  </Text>
+</View>
+`;

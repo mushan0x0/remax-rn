@@ -1,0 +1,16 @@
+export { default as clearStorageSync } from './clearStorageSync';
+export { default as getStorageSync } from './getStorageSync';
+export { default as removeStorageSync } from './removeStorageSync';
+export { default as setStorageSync } from './setStorageSync';
+export { default as showActionSheet } from './showActionSheet';
+export { default as getLocation } from './getLocation';
+export { default as showToast } from './showToast';
+export { default as showLoading } from './showLoading';
+export { default as hideLoading } from './hideLoading';
+export { default as uploadFile } from './uploadFile';
+export { default as getLocalImgData } from './getLocalImgData';
+export { default as chooseImage } from './chooseImage';
+export { default as login } from './login';
+export { default as previewImage } from './previewImage';
+export { default as setNavigationBarTitle } from './setNavigationBarTitle';
+export { navigateTo } from '../../one/utils';
