@@ -25,9 +25,13 @@ export default ({ src, className, style = {}, mode, onTap }: any) => {
   useEffect(() => {
     if (src && mode === 'widthFix') {
       if (isStr) {
-        Image.getSize(src, (width, height) => {
-          setWH({ width, height });
-        });
+        Image.getSize(
+          src,
+          (width, height) => {
+            setWH({ width, height });
+          },
+          () => {}
+        );
       } else {
         setWH(resolveAssetSource(src));
       }

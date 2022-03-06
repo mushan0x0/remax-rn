@@ -33,9 +33,8 @@ const ChildrenWrap = ({ children }: any) => {
     textAlign,
     textOverflow,
     WebkitLineClamp,
-    lineHeight = (fontSize ? (fontSize as any) * 1.3 : fontSize) as any,
+    lineHeight,
   } = useContext(extendStyle);
-  const newlineHeight = lineHeight === 1 ? fontSize : lineHeight;
   return (
     <NeedWrap
       need={isSrt}
@@ -45,12 +44,7 @@ const ChildrenWrap = ({ children }: any) => {
         style: {
           textAlignVertical: 'center',
           // paddingTop: lineHeight === 1 ? (fontSize as any) * 0.1 : undefined,
-          ...Platform.select({
-            ios: {
-              lineHeight: newlineHeight * 1.1,
-            },
-            android: {},
-          }),
+          lineHeight,
           fontSize,
           color,
           fontWeight,
@@ -79,18 +73,24 @@ export default React.memo(
   }: any) => {
     const parentStyle = useContext(extendStyle);
     style = style instanceof Array ? Object.assign({}, ...style) : style;
-    if (style) {
-      Object.keys(style).forEach((key) => {
-        if (style[key] === undefined) {
-          delete style[key];
-        }
-      });
-    }
-    style = transformStyles({
+    style = {
       ...className,
       ...style,
-    });
+    };
     Object.keys(style).forEach((key) => {
+      if (style[key] === undefined) {
+        delete style[key];
+        return;
+      }
+      if (key === 'lineHeight' && +style[key]) {
+        style[key] =
+          +style[key] *
+          +(style.fontSize || 16) *
+          (Platform.select({
+            ios: 1.1,
+            android: 1,
+          }) || 1);
+      }
       if (/em/i.test(style[key])) {
         const number = +style[key].replace(/em/i, '') * 1.1;
         style[key] =
@@ -100,6 +100,7 @@ export default React.memo(
             : (parentStyle as any)?.fontSize) || rpxToPx(26));
       }
     });
+    style = transformStyles(style);
     children = useMemo(
       () =>
         children instanceof Array ? (

@@ -2,14 +2,13 @@
   "name": "remax-rn",
   "version": "1.0.5",
   "description": "remax-rn",
-  "main": "src/index.tsx",
-  "module": "src/index.tsx",
-  "typings": "src/index.tsx",
+  "main": "src/index",
+  "module": "src/index",
+  "types": "src/index",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
     "src",
-    "lib",
     "android",
     "ios",
     "cpp",
@@ -100,8 +99,8 @@
   "jest": {
     "preset": "react-native",
     "moduleNameMapper": {
-      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules",
-      "@/": "./"
+      "@/(.*)$": "<rootDir>/src/$1",
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "transformIgnorePatterns": [
       "node_modules/(?!(.*(rn-color-matrices|@react-native|react-native|concat-color-matrices|@kqinfo).*))"

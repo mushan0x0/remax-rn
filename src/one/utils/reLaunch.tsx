@@ -1,5 +1,5 @@
 import { reLaunch } from 'remax/one';
-import appData from '../../appData';
+import appData from '@/appData';
 
 const fn: typeof reLaunch = (params) => {
   const [url, query] = params.url.split('?');

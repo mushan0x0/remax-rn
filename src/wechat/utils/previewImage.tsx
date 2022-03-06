@@ -1,4 +1,4 @@
-import appData from '../../appData';
+import appData from '@/appData';
 
 const fn = ({ current, urls }: WechatMiniprogram.PreviewImageOption) => {
   appData.setPreviewImages(urls.map((url) => ({ url })));

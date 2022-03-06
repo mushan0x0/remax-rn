@@ -1,12 +1,12 @@
-import { CSSProperties } from 'react';
+import React from 'react';
 import { Dimensions, StatusBar } from 'react-native';
 // @ts-ignore
 import { transform } from 'css-viewport-units-transform';
-import appData from '../appData';
+import appData from '@/appData';
 // @ts-ignore
 import { getUnitRegexp, createPxReplace } from './pxToVw';
 
-type Styles = { [key: string]: CSSProperties };
+type Styles = { [key: string]: React.CSSProperties };
 
 const win = Dimensions.get('window');
 

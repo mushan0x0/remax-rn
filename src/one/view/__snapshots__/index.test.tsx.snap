@@ -11,25 +11,66 @@ exports[`View 基本渲染 1`] = `
       "display": "flex",
       "flexDirection": "column",
       "flexWrap": "nowrap",
+      "lineHeight": 19.360000000000003,
       "opacity": undefined,
       "position": undefined,
     }
   }
 >
-  <Text
+  <View
+    activeOpacity={0.5}
     className="view"
+    onPress={[Function]}
     style={
       Object {
-        "color": undefined,
-        "fontSize": 26,
-        "fontWeight": undefined,
-        "lineHeight": 37.18000000000001,
-        "textAlign": undefined,
-        "textAlignVertical": "center",
+        "border": "1px solid #eee",
+        "borderColor": "#eee",
+        "borderRadius": 375,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "red",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "fontSize": 14,
+        "lineHeight": 30.800000000000004,
+        "opacity": undefined,
+        "position": undefined,
       }
     }
   >
-    233
-  </Text>
+    <View
+      activeOpacity={0.5}
+      className="view"
+      onPress={[Function]}
+      style={
+        Object {
+          "borderRadius": undefined,
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "opacity": undefined,
+          "position": undefined,
+          "width": 57.2,
+        }
+      }
+    >
+      <Text
+        className="view"
+        style={
+          Object {
+            "color": "red",
+            "fontSize": 14,
+            "fontWeight": undefined,
+            "lineHeight": 30.800000000000004,
+            "textAlign": undefined,
+            "textAlignVertical": "center",
+          }
+        }
+      >
+        233
+      </Text>
+    </View>
+  </View>
 </View>
 `;

@@ -1,4 +1,4 @@
-import appData from '../../appData';
+import appData from '@/appData';
 
 const fn = ({ title }: WechatMiniprogram.SetNavigationBarTitleOption) => {
   appData.navigatorProps.navigation.setOptions({ title });
