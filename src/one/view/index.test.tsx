@@ -12,6 +12,7 @@ describe('View', () => {
           <View
             style={{
               fontSize: 14,
+              fontWeight: 400,
               color: 'red',
               border: '1px solid #eee',
               borderRadius: '50%',

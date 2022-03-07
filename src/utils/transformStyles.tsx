@@ -107,6 +107,9 @@ export default (
     CSSObj.backgroundColor = CSSObj.backgroundColor || CSSObj.background;
     delete CSSObj.background;
   }
+  if (CSSObj.fontWeight) {
+    CSSObj.fontWeight = CSSObj.fontWeight + '';
+  }
   // if (CSSObj.zIndex !== -1) {
   //   CSSObj.elevation = CSSObj.zIndex;
   // }
