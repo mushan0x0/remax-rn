@@ -8,7 +8,7 @@ describe('View', () => {
   it('基本渲染', () => {
     expect(
       TestRenderer.create(
-        <View style={{ lineHeight: 1.1 }}>
+        <View style={{ lineHeight: 1.1, background: 'red' }}>
           <View
             style={{
               fontSize: 14,

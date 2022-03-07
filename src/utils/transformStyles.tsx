@@ -103,8 +103,9 @@ export default (
     CSSObj.paddingLeft = padding;
     CSSObj.paddingRight = padding;
   }
-  if (CSSObj.background === 'none') {
-    CSSObj.backgroundColor = 'none';
+  if (CSSObj.background) {
+    CSSObj.backgroundColor = CSSObj.backgroundColor || CSSObj.background;
+    delete CSSObj.background;
   }
   // if (CSSObj.zIndex !== -1) {
   //   CSSObj.elevation = CSSObj.zIndex;
