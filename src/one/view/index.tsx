@@ -83,13 +83,7 @@ export default React.memo(
         return;
       }
       if (key === 'lineHeight' && +style[key]) {
-        style[key] =
-          +style[key] *
-          +(style.fontSize || 16) *
-          (Platform.select({
-            ios: 1.1,
-            android: 1,
-          }) || 1);
+        style[key] = +style[key] * +(style.fontSize || 16) * 1.1;
       }
       if (/em/i.test(style[key])) {
         const number = +style[key].replace(/em/i, '') * 1.1;
