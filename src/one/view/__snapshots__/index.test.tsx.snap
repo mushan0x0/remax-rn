@@ -51,6 +51,7 @@ exports[`View 基本渲染 1`] = `
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "wrap",
+          "lineHeight": 16,
           "opacity": undefined,
           "position": undefined,
           "width": 57.2,
@@ -64,7 +65,7 @@ exports[`View 基本渲染 1`] = `
             "color": "red",
             "fontSize": 14,
             "fontWeight": "400",
-            "lineHeight": 30.800000000000004,
+            "lineHeight": 16,
             "textAlign": undefined,
             "textAlignVertical": "center",
           }

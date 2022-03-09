@@ -19,7 +19,7 @@ describe('View', () => {
               lineHeight: '2',
             }}
           >
-            <View style={{ width: '2em' }}>233</View>
+            <View style={{ width: '2em', lineHeight: 16 }}>233</View>
           </View>
         </View>
       ).toJSON()

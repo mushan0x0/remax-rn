@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
   Text,
   Dimensions,
-  Platform,
   ScrollView,
 } from 'react-native';
 import styles from './index.less';
@@ -82,7 +81,7 @@ export default React.memo(
         delete style[key];
         return;
       }
-      if (key === 'lineHeight' && +style[key]) {
+      if (key === 'lineHeight' && +style[key] && +style[key] < 10) {
         style[key] = +style[key] * +(style.fontSize || 16) * 1.1;
       }
       if (/em/i.test(style[key])) {
