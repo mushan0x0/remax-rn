@@ -5,6 +5,8 @@ import { transform } from 'css-viewport-units-transform';
 import appData from '@/appData';
 // @ts-ignore
 import { getUnitRegexp, createPxReplace } from './pxToVw';
+// @ts-ignore
+import transformCSS from 'css-to-react-native';
 
 type Styles = { [key: string]: React.CSSProperties };
 
@@ -14,7 +16,7 @@ export default (
   { ...styles }: Styles = {},
   ...arg: (string | false | { [key: string]: boolean } | undefined)[]
 ) => {
-  const CSSObj: any =
+  let CSSObj: any =
     arg.length === 0
       ? styles
       : Object.assign(
@@ -73,13 +75,14 @@ export default (
         CSSObj[`${key}Color`] = color;
         CSSObj[`${key}Style`] = style;
       }
-      if (['margin', 'padding'].includes(key) && CSSObj[key]?.includes(' ')) {
-        const [top, right, bottom, left = right] = CSSObj[key].split(' ');
+      if (['margin', 'padding'].includes(key)) {
+        if (CSSObj[key]) {
+          CSSObj = {
+            ...CSSObj,
+            ...transformCSS([[key, CSSObj[key]]]),
+          };
+        }
         delete CSSObj[key];
-        CSSObj[`${key}top`] = top;
-        CSSObj[`${key}right`] = right;
-        CSSObj[`${key}bottom`] = bottom;
-        CSSObj[`${key}left`] = left;
         return;
       }
       //不支持
@@ -96,13 +99,6 @@ export default (
       }
     }
   });
-  if (CSSObj.padding !== undefined) {
-    const { padding } = CSSObj;
-    CSSObj.paddingTop = padding;
-    CSSObj.paddingBottom = padding;
-    CSSObj.paddingLeft = padding;
-    CSSObj.paddingRight = padding;
-  }
   if (CSSObj.background) {
     CSSObj.backgroundColor = CSSObj.backgroundColor || CSSObj.background;
     delete CSSObj.background;
