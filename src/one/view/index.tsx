@@ -42,7 +42,8 @@ const ChildrenWrap = ({ children }: any) => {
         className: styles.view,
         style: {
           textAlignVertical: 'center',
-          // paddingTop: lineHeight === 1 ? (fontSize as any) * 0.1 : undefined,
+          paddingTop:
+            lineHeight === fontSize ? (fontSize as any) * 0.2 : undefined,
           lineHeight,
           fontSize,
           color,
@@ -82,7 +83,14 @@ export default React.memo(
         return;
       }
       if (key === 'lineHeight' && +style[key] && +style[key] < 10) {
-        style[key] = +style[key] * +(style.fontSize || 16) * 1.1;
+        if (+style[key] === 1) {
+          style[key] = +(style.fontSize || parentStyle?.fontSize || 16);
+        } else {
+          style[key] =
+            +style[key] *
+            +(style.fontSize || parentStyle?.fontSize || 16) *
+            1.1;
+        }
       }
       if (/em/i.test(style[key])) {
         const number = +style[key].replace(/em/i, '') * 1.1;

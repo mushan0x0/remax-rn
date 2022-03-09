@@ -74,6 +74,41 @@ exports[`View 基本渲染 1`] = `
             "fontSize": 14,
             "fontWeight": "400",
             "lineHeight": 16,
+            "paddingTop": undefined,
+            "textAlign": undefined,
+            "textAlignVertical": "center",
+          }
+        }
+      >
+        233
+      </Text>
+    </View>
+    <View
+      activeOpacity={0.5}
+      className="view"
+      onPress={[Function]}
+      style={
+        Object {
+          "borderRadius": undefined,
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "lineHeight": 14,
+          "opacity": undefined,
+          "position": undefined,
+          "width": 57.2,
+        }
+      }
+    >
+      <Text
+        className="view"
+        style={
+          Object {
+            "color": "red",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "lineHeight": 14,
+            "paddingTop": 2.8000000000000003,
             "textAlign": undefined,
             "textAlignVertical": "center",
           }
