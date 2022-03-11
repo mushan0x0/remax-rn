@@ -12,8 +12,10 @@ exports[`Input 基本渲染 1`] = `
       "display": "flex",
       "flexDirection": "column",
       "flexWrap": "nowrap",
+      "height": 50,
       "opacity": undefined,
       "position": undefined,
+      "width": 100,
     }
   }
 >
@@ -26,15 +28,17 @@ exports[`Input 基本渲染 1`] = `
     returnKeyType="done"
     style={
       Object {
-        "backgroundColor": "#fff",
+        "backgroundColor": "red",
         "display": "flex",
         "flexWrap": "wrap",
         "fontSize": undefined,
+        "height": 50,
         "paddingBottom": 0,
         "paddingLeft": 0,
         "paddingRight": 0,
         "paddingTop": 0,
         "textAlign": undefined,
+        "width": 100,
       }
     }
     underlineColorAndroid="transparent"
