@@ -31,6 +31,21 @@ export default (
             .flat()
             .map((key: any) => (styles as any)[key])
         );
+  if (CSSObj[0]) {
+    const fn = (count: number) => {
+      if (CSSObj[count]) {
+        CSSObj = {
+          ...CSSObj,
+          ...CSSObj[count],
+        };
+        delete CSSObj[count];
+      }
+      if (CSSObj[count + 1]) {
+        fn(count + 1);
+      }
+    };
+    fn(0);
+  }
   if (CSSObj.overflow === 'auto') {
     CSSObj.overflow = 'scroll';
     CSSObj.height = undefined;

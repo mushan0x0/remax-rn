@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input 基本渲染 1`] = `
+<View
+  activeOpacity={0.5}
+  className="view"
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "red",
+      "borderRadius": undefined,
+      "display": "flex",
+      "flexDirection": "column",
+      "flexWrap": "nowrap",
+      "opacity": undefined,
+      "position": undefined,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="default"
+    onChangeText={[Function]}
+    placeholderTextColor="#999"
+    rejectResponderTermination={true}
+    returnKeyType="done"
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "fontSize": undefined,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0,
+        "textAlign": undefined,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

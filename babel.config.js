@@ -32,6 +32,15 @@ module.exports = {
     [
       'import',
       {
+        libraryName: 'remax',
+        libraryDirectory: '@/',
+        style: false,
+      },
+      'remax',
+    ],
+    [
+      'import',
+      {
         libraryName: 'antd',
         libraryDirectory: 'es',
         style: 'less',
