@@ -21,7 +21,7 @@
     "!**/__mocks__"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose ./src",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
@@ -84,8 +84,10 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "react": "16.13.1",
+    "react-dom": "^17.0.2",
     "react-native": "0.63.4",
     "react-native-builder-bob": "^0.18.2",
+    "react-native-svg-web": "^1.0.9",
     "react-test-renderer": "^17.0.2",
     "release-it": "^14.2.2",
     "semver": "^7.3.2",
@@ -101,15 +103,22 @@
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1",
       "remax/(.*)$": "<rootDir>/src/$1",
+      "^(react-native)$": "<rootDir>/node_modules/react-native",
+      "^(react)$": "<rootDir>/node_modules/react",
+      "^(classnames)$": "<rootDir>/src/utils/classNames",
+      "react-native-svg": "<rootDir>/node_modules/react-native-svg-web",
       "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "testEnvironment": "jsdom",
     "transformIgnorePatterns": [
-      "node_modules/(?!(.*(rn-color-matrices|@react-native|react-native|concat-color-matrices|@kqinfo).*))"
+      "node_modules/(?!(.*(rn-color-matrices|@react-native|react-native|concat-color-matrices|@kqinfo|@sentry/react-native|react-native-svg-web).*))"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
+    ],
+    "setupFiles": [
+      "./setup.js"
     ]
   },
   "commitlint": {
