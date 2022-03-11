@@ -43,7 +43,9 @@ const ChildrenWrap = ({ children }: any) => {
         style: {
           textAlignVertical: 'center',
           paddingTop:
-            lineHeight === fontSize ? (fontSize as any) * 0.2 : undefined,
+            lineHeight && fontSize && +lineHeight / +fontSize < 1.2
+              ? (fontSize as any) * 0.2
+              : undefined,
           lineHeight,
           fontSize,
           color,
