@@ -47,6 +47,7 @@ const ChildrenWrap = ({ children }: any) => {
               ? (fontSize as any) * 0.2
               : undefined,
           lineHeight,
+          height: lineHeight,
           fontSize,
           color,
           fontWeight,
