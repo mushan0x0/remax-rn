@@ -13,4 +13,6 @@ export { default as chooseImage } from './chooseImage';
 export { default as login } from './login';
 export { default as previewImage } from './previewImage';
 export { default as setNavigationBarTitle } from './setNavigationBarTitle';
+export { default as getAccountInfoSync } from './getAccountInfoSync';
+export { default as setClipboardData } from './setClipboardData';
 export { navigateTo } from '../../one/utils';

@@ -191,6 +191,7 @@
     "@ant-design/react-native": "^4.2.0",
     "@kqinfo/ui": "^1.8.5",
     "@react-native-async-storage/async-storage": "^1.15.7",
+    "@react-native-clipboard/clipboard": "^1.8.5",
     "@react-navigation/native": "5.x",
     "@react-navigation/stack": "^6.0.11",
     "babel-plugin-polyfill-corejs3": "^0.2.4",
