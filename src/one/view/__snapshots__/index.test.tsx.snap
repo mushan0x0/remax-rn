@@ -55,6 +55,7 @@ exports[`View 基本渲染 1`] = `
       onPress={[Function]}
       style={
         Object {
+          "backgroundColor": "none",
           "borderRadius": undefined,
           "display": "flex",
           "flexDirection": "row",
