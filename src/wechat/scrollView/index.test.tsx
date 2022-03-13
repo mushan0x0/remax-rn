@@ -10,7 +10,7 @@ describe('Scroll', () => {
     expect(
       TestRenderer.create(
         <Scroll
-          style={{ flexWrap: 'no-wrap' }}
+          style={{ flexWrap: 'no-wrap', transform: 'rotate(30deg)' }}
           className={{ background: 'red' }}
           scrollX
         >

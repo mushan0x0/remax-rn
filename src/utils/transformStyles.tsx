@@ -90,14 +90,15 @@ export default (
         CSSObj[`${key}Color`] = color;
         CSSObj[`${key}Style`] = style;
       }
-      if (['margin', 'padding'].includes(key)) {
-        if (CSSObj[key]) {
+      if (['margin', 'padding', 'transform'].includes(key)) {
+        const value = CSSObj[key];
+        if (value) {
+          delete CSSObj[key];
           CSSObj = {
             ...CSSObj,
-            ...transformCSS([[key, CSSObj[key]]]),
+            ...transformCSS([[key, value]]),
           };
         }
-        delete CSSObj[key];
         return;
       }
       //不支持
@@ -134,7 +135,7 @@ export default (
   //   CSSObj.width = '100%';
   // }
   // console.log(JSON.stringify(CSSObj));
-  return transform(CSSObj, {
+  CSSObj = transform(CSSObj, {
     'width': win.width,
     'height':
       win.height - appData.headerHeight - (StatusBar.currentHeight || 0),
@@ -142,4 +143,8 @@ export default (
     'aspect-ratio': win.width / win.height,
     'type': 'screen',
   });
+  if (CSSObj.transform) {
+    CSSObj.transform = Object.values(CSSObj.transform);
+  }
+  return CSSObj;
 };
