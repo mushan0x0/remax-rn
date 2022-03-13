@@ -20,7 +20,16 @@ describe('View', () => {
               padding: '20px 0',
             }}
           >
-            <View style={{ width: '2em', lineHeight: 16 }}>233</View>
+            <View
+              style={{
+                width: '2em',
+                lineHeight: 16,
+                backgroundColor: 'red',
+                background: 'none',
+              }}
+            >
+              233
+            </View>
             <View style={{ width: '2em', lineHeight: 1 }}>233</View>
           </View>
         </View>

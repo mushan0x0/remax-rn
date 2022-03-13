@@ -117,6 +117,9 @@ export default (
   });
   if (CSSObj.background) {
     CSSObj.backgroundColor = CSSObj.backgroundColor || CSSObj.background;
+    if (CSSObj.background === 'none') {
+      CSSObj.backgroundColor = 'none';
+    }
     delete CSSObj.background;
   }
   if (CSSObj.fontWeight) {
