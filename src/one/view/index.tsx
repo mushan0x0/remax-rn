@@ -119,19 +119,19 @@ export default React.memo(
       });
       style = transformStyles(style);
       const textRef = useRef(null);
-      children = useMemo(
-        () =>
+      children = useMemo(() => {
+        const fn = (children: any) =>
           children instanceof Array ? (
             children.map((item, i) => (
               <ChildrenWrap ref={textRef} key={i}>
-                {item}
+                {fn(item)}
               </ChildrenWrap>
             ))
           ) : (
             <ChildrenWrap ref={textRef}>{children}</ChildrenWrap>
-          ),
-        [children]
-      );
+          );
+        return fn(children);
+      }, [children]);
       style = useMemo(() => {
         const obj =
           style instanceof Array ? Object.assign({}, ...style) : style;

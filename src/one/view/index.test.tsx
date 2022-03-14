@@ -1,6 +1,7 @@
 import TestRenderer from 'react-test-renderer';
 import View from './index';
 import React from 'react';
+import { Native } from '@kqinfo/ui';
 
 jest.useFakeTimers();
 
@@ -8,7 +9,12 @@ describe('View', () => {
   it('基本渲染', () => {
     expect(
       TestRenderer.create(
-        <View style={{ lineHeight: 1.1, background: 'red', margin: '20px 0' }}>
+        <Native
+          initData={{
+            style: { lineHeight: 1.1, background: 'red', margin: '20px 0' },
+          }}
+        >
+          {1}
           <View
             style={{
               fontSize: 14,
@@ -32,7 +38,7 @@ describe('View', () => {
             </View>
             <View style={{ width: '2em', lineHeight: 1 }}>233</View>
           </View>
-        </View>
+        </Native>
       ).toJSON()
     ).toMatchSnapshot();
   });

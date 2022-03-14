@@ -22,6 +22,23 @@ exports[`View 基本渲染 1`] = `
     }
   }
 >
+  <Text
+    className="view"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": 26,
+        "fontWeight": undefined,
+        "height": 19.360000000000003,
+        "lineHeight": 19.360000000000003,
+        "paddingTop": 2.6,
+        "textAlign": undefined,
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    1
+  </Text>
   <View
     activeOpacity={0.5}
     className="view"
@@ -76,7 +93,7 @@ exports[`View 基本渲染 1`] = `
             "fontWeight": "400",
             "height": 16,
             "lineHeight": 16,
-            "paddingTop": 2.8000000000000003,
+            "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
             "textAlignVertical": "center",
           }
@@ -111,7 +128,7 @@ exports[`View 基本渲染 1`] = `
             "fontWeight": "400",
             "height": 14,
             "lineHeight": 14,
-            "paddingTop": 2.8000000000000003,
+            "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
             "textAlignVertical": "center",
           }
