@@ -9,6 +9,8 @@ const Fn: typeof usePageEvent = (eventName, callback) => {
   useEffect(() => {
     if (eventName === 'onShow' && isFocused) {
       callback();
+    } else if (eventName === 'onHide' && !isFocused) {
+      callback();
     } else if (eventName === 'onLoad') {
       callback();
     }

@@ -14,6 +14,7 @@ import {
   Text,
   Dimensions,
   ScrollView,
+  Platform,
 } from 'react-native';
 import styles from './index.less';
 import NeedWrap from '../../utils/NeedWrap';
@@ -48,7 +49,11 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
           textAlignVertical: 'center',
           paddingTop:
             lineHeight && fontSize && +lineHeight / +fontSize < 1.2
-              ? (fontSize as any) * 0.2
+              ? (fontSize as any) *
+                (Platform.select({
+                  android: 0.2,
+                  ios: 0.1,
+                }) || 0)
               : undefined,
           lineHeight,
           height: lineHeight,
