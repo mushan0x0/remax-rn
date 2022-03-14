@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StatusBar } from 'react-native';
+import { Dimensions } from 'react-native';
 // @ts-ignore
 import { transform } from 'css-viewport-units-transform';
 import appData from '@/appData';
@@ -7,6 +7,14 @@ import appData from '@/appData';
 import { getUnitRegexp, createPxReplace } from './pxToVw';
 // @ts-ignore
 import transformCSS from 'css-to-react-native';
+import { NativeModules } from 'react-native';
+const { StatusBarManager } = NativeModules;
+
+let statusBarHeight = 0;
+
+StatusBarManager.getHeight?.((statusBarFrameData: any) => {
+  statusBarHeight = statusBarFrameData.height;
+});
 
 type Styles = { [key: string]: React.CSSProperties };
 
@@ -134,14 +142,12 @@ export default (
   if (CSSObj.position === 'sticky') {
     delete CSSObj.position;
   }
-  // if (CSSObj.display === 'flex') {
-  //   CSSObj.width = '100%';
-  // }
-  // console.log(JSON.stringify(CSSObj));
+  if (CSSObj.height === win.height) {
+    CSSObj.height = '100vh';
+  }
   CSSObj = transform(CSSObj, {
     'width': win.width,
-    'height':
-      win.height - appData.headerHeight - (StatusBar.currentHeight || 0),
+    'height': win.height - appData.headerHeight - statusBarHeight,
     'orientation': win.width > win.height ? 'landscape' : 'portrait',
     'aspect-ratio': win.width / win.height,
     'type': 'screen',

@@ -202,6 +202,7 @@ export default React.memo(
                     style: {
                       ...style,
                       opacity: style.opacity,
+                      // pointerEvents: isText ? 'none' : style.pointerEvents,
                       position: isFixed ? 'absolute' : style.position,
                     },
                     pointerEvents: style.pointerEvents,

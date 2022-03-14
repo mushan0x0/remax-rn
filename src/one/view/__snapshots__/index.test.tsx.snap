@@ -56,6 +56,7 @@ exports[`View 基本渲染 1`] = `
         "flexWrap": "wrap",
         "fontSize": 14,
         "fontWeight": "400",
+        "height": 1334,
         "lineHeight": 30.800000000000004,
         "opacity": undefined,
         "paddingBottom": 39.999975,

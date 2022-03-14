@@ -23,6 +23,7 @@ describe('View', () => {
               border: '1px solid #eee',
               borderRadius: '50%',
               lineHeight: '2',
+              height: '100vh',
               padding: '20px 0',
             }}
           >
