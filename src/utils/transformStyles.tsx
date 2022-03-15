@@ -137,10 +137,19 @@ export default (
   //   CSSObj.elevation = CSSObj.zIndex;
   // }
   delete CSSObj.resize;
+  delete CSSObj.overflowWrap;
+  delete CSSObj.pointerEvents;
   delete CSSObj.outline;
   delete CSSObj.animation;
+  delete CSSObj.whiteSpace;
+  delete CSSObj.numberOfLines;
+  delete CSSObj.WebkitBoxOrient;
+  delete CSSObj.textOverflow;
   if (CSSObj.position === 'sticky') {
     delete CSSObj.position;
+  }
+  if (CSSObj.color === 'inherit') {
+    delete CSSObj.color;
   }
   if (CSSObj.height === win.height) {
     CSSObj.height = '100vh';
