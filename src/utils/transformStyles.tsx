@@ -7,14 +7,6 @@ import appData from '@/appData';
 import { getUnitRegexp, createPxReplace } from './pxToVw';
 // @ts-ignore
 import transformCSS from 'css-to-react-native';
-import { NativeModules } from 'react-native';
-const { StatusBarManager } = NativeModules;
-
-let statusBarHeight = 0;
-
-StatusBarManager.getHeight?.((statusBarFrameData: any) => {
-  statusBarHeight = statusBarFrameData.height;
-});
 
 type Styles = { [key: string]: React.CSSProperties };
 
@@ -151,12 +143,18 @@ export default (
   if (CSSObj.color === 'inherit') {
     delete CSSObj.color;
   }
+  if (!CSSObj.height && CSSObj.height !== 0) {
+    delete CSSObj.height;
+  }
+  if (!CSSObj.lineHeight && CSSObj.lineHeight !== 0) {
+    delete CSSObj.lineHeight;
+  }
   if (CSSObj.height === win.height) {
     CSSObj.height = '100vh';
   }
   CSSObj = transform(CSSObj, {
     'width': win.width,
-    'height': win.height - appData.headerHeight - statusBarHeight,
+    'height': win.height - appData.headerHeight,
     'orientation': win.width > win.height ? 'landscape' : 'portrait',
     'aspect-ratio': win.width / win.height,
     'type': 'screen',
