@@ -15,4 +15,6 @@ export { default as previewImage } from './previewImage';
 export { default as setNavigationBarTitle } from './setNavigationBarTitle';
 export { default as getAccountInfoSync } from './getAccountInfoSync';
 export { default as setClipboardData } from './setClipboardData';
+export { default as showTabBar } from './showTabBar';
+export { default as hideTabBar } from './hideTabBar';
 export { navigateTo } from '../../one/utils';
