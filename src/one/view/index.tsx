@@ -45,8 +45,8 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
       wrapProps={{
         className: styles.view,
         ref,
+        pointerEvents: 'none',
         style: {
-          textAlignVertical: 'center',
           paddingTop:
             lineHeight && fontSize && +lineHeight / +fontSize < 1.2
               ? (fontSize as any) *
@@ -202,7 +202,6 @@ export default React.memo(
                     style: {
                       ...style,
                       opacity: style.opacity,
-                      // pointerEvents: isText ? 'none' : style.pointerEvents,
                       position: isFixed ? 'absolute' : style.position,
                     },
                     pointerEvents: style.pointerEvents,

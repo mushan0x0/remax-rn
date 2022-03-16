@@ -130,13 +130,13 @@ export default (
   // }
   delete CSSObj.resize;
   delete CSSObj.overflowWrap;
-  delete CSSObj.pointerEvents;
+  // delete CSSObj.pointerEvents;
   delete CSSObj.outline;
   delete CSSObj.animation;
   delete CSSObj.whiteSpace;
   delete CSSObj.numberOfLines;
   delete CSSObj.WebkitBoxOrient;
-  delete CSSObj.textOverflow;
+  // delete CSSObj.textOverflow;
   if (CSSObj.position === 'sticky') {
     delete CSSObj.position;
   }

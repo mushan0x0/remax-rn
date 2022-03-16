@@ -37,6 +37,7 @@ exports[`Scroll 基本渲染 1`] = `
     >
       <Text
         className="view"
+        pointerEvents="none"
         style={
           Object {
             "color": undefined,
@@ -46,7 +47,6 @@ exports[`Scroll 基本渲染 1`] = `
             "lineHeight": undefined,
             "paddingTop": undefined,
             "textAlign": undefined,
-            "textAlignVertical": "center",
           }
         }
       >
@@ -70,6 +70,7 @@ exports[`Scroll 基本渲染 1`] = `
     >
       <Text
         className="view"
+        pointerEvents="none"
         style={
           Object {
             "color": undefined,
@@ -79,7 +80,6 @@ exports[`Scroll 基本渲染 1`] = `
             "lineHeight": undefined,
             "paddingTop": undefined,
             "textAlign": undefined,
-            "textAlignVertical": "center",
           }
         }
       >
