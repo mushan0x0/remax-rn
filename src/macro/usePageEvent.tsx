@@ -22,9 +22,9 @@ const Fn: typeof usePageEvent = (eventName, callback) => {
         callback();
       }
     };
-    AppState.addEventListener('change', fn);
+    const event = AppState.addEventListener('change', fn);
     return () => {
-      AppState.removeEventListener('change', fn);
+      event.remove();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused]);

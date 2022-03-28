@@ -68,6 +68,7 @@ export default (
       // debugger;
     }
     if (typeof CSSObj[key] === 'string') {
+      CSSObj[key] = CSSObj[key].replace('PX', 'px');
       if ((+CSSObj[key] || CSSObj[key] === '0') && key !== 'fontWeight') {
         // console.log(key, CSSObj[key]);
         if (['lineHeight', 'flex'].includes(key)) {

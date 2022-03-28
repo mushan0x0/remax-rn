@@ -87,7 +87,7 @@ export default React.memo(
       }: any,
       ref
     ) => {
-      const parentStyle = useContext(extendStyle);
+      let parentStyle = useContext(extendStyle);
       style = style instanceof Array ? Object.assign({}, ...style) : style;
       style = {
         ...className,
@@ -164,15 +164,23 @@ export default React.memo(
         []
       );
       // console.log(JSON.stringify(style));
+      parentStyle = {
+        ...parentStyle,
+        ...style,
+      };
+      delete style.resize;
+      delete style.overflowWrap;
+      delete style.pointerEvents;
+      delete style.outline;
+      delete style.animation;
+      delete style.whiteSpace;
+      delete style.numberOfLines;
+      delete style.WebkitBoxOrient;
+      delete style.textOverflow;
       const render = useMemo(() => {
         // console.log(+new Date());
         return (
-          <extendStyle.Provider
-            value={{
-              ...parentStyle,
-              ...style,
-            }}
-          >
+          <extendStyle.Provider value={parentStyle}>
             <NeedWrap
               wrap={ScrollView}
               need={['scroll', 'auto'].includes(style?.overflow)}
@@ -204,7 +212,7 @@ export default React.memo(
                       opacity: style.opacity,
                       position: isFixed ? 'absolute' : style.position,
                     },
-                    pointerEvents: style.pointerEvents,
+                    pointerEvents: parentStyle.pointerEvents,
                   }}
                 >
                   {children}
@@ -219,16 +227,33 @@ export default React.memo(
         children,
         isFixed,
         isText,
-        // onLayout,
-        // onPress,
-        // onTap,
+        onLayout,
+        onPress,
+        onTap,
         // eslint-disable-next-line react-hooks/exhaustive-deps
         JSON.stringify(parentStyle),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         JSON.stringify(style),
       ]);
       usePortal(
-        useCallback(() => (isFixed ? render : <></>), [isFixed, render])
+        useCallback(
+          () => (isFixed ? render : <></>),
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          [
+            isFixed,
+            activeOpacity,
+            children,
+            isFixed,
+            isText,
+            // onLayout,
+            // onPress,
+            // onTap,
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            JSON.stringify(parentStyle),
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            JSON.stringify(style),
+          ]
+        )
       );
       return isFixed ? null : render;
     }
