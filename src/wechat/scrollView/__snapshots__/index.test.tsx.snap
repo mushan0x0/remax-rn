@@ -36,14 +36,15 @@ exports[`Scroll 基本渲染 1`] = `
       }
     >
       <Text
+        allowFontScaling={false}
         className="view"
+        ellipsizeMode="tail"
         pointerEvents="none"
         style={
           Object {
             "color": undefined,
             "fontSize": 26,
             "fontWeight": undefined,
-            "height": undefined,
             "lineHeight": undefined,
             "paddingTop": undefined,
             "textAlign": undefined,
@@ -69,14 +70,15 @@ exports[`Scroll 基本渲染 1`] = `
       }
     >
       <Text
+        allowFontScaling={false}
         className="view"
+        ellipsizeMode="tail"
         pointerEvents="none"
         style={
           Object {
             "color": undefined,
             "fontSize": 26,
             "fontWeight": undefined,
-            "height": undefined,
             "lineHeight": undefined,
             "paddingTop": undefined,
             "textAlign": undefined,

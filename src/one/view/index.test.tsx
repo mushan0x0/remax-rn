@@ -19,6 +19,7 @@ describe('View', () => {
             style={{
               fontSize: 14,
               fontWeight: 400,
+              WebkitLineClamp: 2,
               color: 'red',
               border: '1px solid #eee',
               borderRadius: '50%',

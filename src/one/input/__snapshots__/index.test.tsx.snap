@@ -20,6 +20,7 @@ exports[`Input 基本渲染 1`] = `
   }
 >
   <TextInput
+    allowFontScaling={false}
     keyboardType="default"
     onChangeText={[Function]}
     placeholderTextColor="#999"

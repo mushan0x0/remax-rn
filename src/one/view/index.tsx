@@ -15,6 +15,7 @@ import {
   Dimensions,
   ScrollView,
   Platform,
+  TextInput,
 } from 'react-native';
 import styles from './index.less';
 import NeedWrap from '../../utils/NeedWrap';
@@ -22,6 +23,15 @@ import transformStyles from '../../utils/transformStyles';
 import { Grayscale } from 'react-native-color-matrix-image-filters';
 import { usePortal } from 'parsec-hooks';
 import { rpxToPx } from '@kqinfo/ui';
+
+// @ts-ignore
+Text.defaultProps = { ...(Text.defaultProps || {}), allowFontScaling: false };
+// @ts-ignore
+TextInput.defaultProps = {
+  // @ts-ignore
+  ...(TextInput.defaultProps || {}),
+  allowFontScaling: false,
+};
 
 export const extendStyle = createContext(undefined as any as CSSProperties);
 
@@ -34,7 +44,6 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
     color,
     fontWeight,
     textAlign,
-    textOverflow,
     WebkitLineClamp,
     lineHeight,
   } = useContext(extendStyle);
@@ -56,15 +65,14 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
                 }) || 0)
               : undefined,
           lineHeight,
-          height: lineHeight,
+          // height: lineHeight,
           fontSize,
           color,
           fontWeight,
           textAlign,
         },
-        ...(textOverflow || WebkitLineClamp
-          ? { numberOfLines: WebkitLineClamp || 1, ellipsizeMode: 'tail' }
-          : {}),
+        numberOfLines: WebkitLineClamp,
+        ellipsizeMode: 'tail',
       }}
     >
       {children}
@@ -100,7 +108,7 @@ export default React.memo(
         }
         if (key === 'lineHeight' && +style[key] && +style[key] < 10) {
           if (+style[key] === 1) {
-            style[key] = +(style.fontSize || parentStyle?.fontSize || 16);
+            style[key] = +(style.fontSize || parentStyle?.fontSize || 16) * 1.1;
           } else {
             style[key] =
               +style[key] *

@@ -23,14 +23,15 @@ exports[`View 基本渲染 1`] = `
   }
 >
   <Text
+    allowFontScaling={false}
     className="view"
+    ellipsizeMode="tail"
     pointerEvents="none"
     style={
       Object {
         "color": undefined,
         "fontSize": 26,
         "fontWeight": undefined,
-        "height": 19.360000000000003,
         "lineHeight": 19.360000000000003,
         "paddingTop": 2.6,
         "textAlign": undefined,
@@ -45,6 +46,7 @@ exports[`View 基本渲染 1`] = `
     onPress={[Function]}
     style={
       Object {
+        "WebkitLineClamp": 2,
         "border": "1px solid #eee",
         "borderColor": "#eee",
         "borderRadius": 375,
@@ -86,14 +88,16 @@ exports[`View 基本渲染 1`] = `
       }
     >
       <Text
+        allowFontScaling={false}
         className="view"
+        ellipsizeMode="tail"
+        numberOfLines={2}
         pointerEvents="none"
         style={
           Object {
             "color": "red",
             "fontSize": 14,
             "fontWeight": "400",
-            "height": 16,
             "lineHeight": 16,
             "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
@@ -113,7 +117,7 @@ exports[`View 基本渲染 1`] = `
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "wrap",
-          "lineHeight": 14,
+          "lineHeight": 15.400000000000002,
           "opacity": undefined,
           "position": undefined,
           "width": 57.2,
@@ -121,15 +125,17 @@ exports[`View 基本渲染 1`] = `
       }
     >
       <Text
+        allowFontScaling={false}
         className="view"
+        ellipsizeMode="tail"
+        numberOfLines={2}
         pointerEvents="none"
         style={
           Object {
             "color": "red",
             "fontSize": 14,
             "fontWeight": "400",
-            "height": 14,
-            "lineHeight": 14,
+            "lineHeight": 15.400000000000002,
             "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
           }
