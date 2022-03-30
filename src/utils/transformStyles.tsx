@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 // @ts-ignore
 import { transform } from 'css-viewport-units-transform';
 import appData from '@/appData';
@@ -155,7 +155,8 @@ export default (
   }
   CSSObj = transform(CSSObj, {
     'width': win.width,
-    'height': win.height - appData.headerHeight,
+    'height':
+      win.height - appData.headerHeight - (StatusBar?.currentHeight || 0),
     'orientation': win.width > win.height ? 'landscape' : 'portrait',
     'aspect-ratio': win.width / win.height,
     'type': 'screen',
