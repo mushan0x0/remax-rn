@@ -1,6 +1,6 @@
 {
   "name": "remax-rn",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "remax-rn",
   "main": "src/index",
   "module": "src/index",
