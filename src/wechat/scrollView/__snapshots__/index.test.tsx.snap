@@ -45,8 +45,6 @@ exports[`Scroll 基本渲染 1`] = `
             "color": undefined,
             "fontSize": 26,
             "fontWeight": undefined,
-            "lineHeight": undefined,
-            "paddingTop": undefined,
             "textAlign": undefined,
           }
         }
@@ -79,8 +77,6 @@ exports[`Scroll 基本渲染 1`] = `
             "color": undefined,
             "fontSize": 26,
             "fontWeight": undefined,
-            "lineHeight": undefined,
-            "paddingTop": undefined,
             "textAlign": undefined,
           }
         }

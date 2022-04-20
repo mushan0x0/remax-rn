@@ -14,7 +14,7 @@ import {
   Text,
   Dimensions,
   ScrollView,
-  Platform,
+  // Platform,
   TextInput,
 } from 'react-native';
 import styles from './index.less';
@@ -45,7 +45,7 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
     fontWeight,
     textAlign,
     WebkitLineClamp,
-    lineHeight,
+    // lineHeight,
   } = useContext(extendStyle);
   return (
     <NeedWrap
@@ -56,16 +56,17 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
         ref,
         pointerEvents: 'none',
         style: {
-          paddingTop:
-            lineHeight && fontSize && +lineHeight / +fontSize < 1.2
-              ? (fontSize as any) *
-                (Platform.select({
-                  android: 0.2,
-                  ios: 0.1,
-                }) || 0)
-              : undefined,
-          lineHeight,
+          // paddingTop:
+          //   lineHeight && fontSize && +lineHeight / +fontSize < 1.2
+          //     ? (fontSize as any) *
+          //       (Platform.select({
+          //         android: 0.2,
+          //         ios: 0.1,
+          //       }) || 0)
+          //     : undefined,
+          // lineHeight,
           // height: lineHeight,
+          // backgroundColor: 'red',
           fontSize,
           color,
           fontWeight,

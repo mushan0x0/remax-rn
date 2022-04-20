@@ -32,8 +32,6 @@ exports[`View 基本渲染 1`] = `
         "color": undefined,
         "fontSize": 26,
         "fontWeight": undefined,
-        "lineHeight": 19.360000000000003,
-        "paddingTop": 2.6,
         "textAlign": undefined,
       }
     }
@@ -98,8 +96,6 @@ exports[`View 基本渲染 1`] = `
             "color": "red",
             "fontSize": 14,
             "fontWeight": "400",
-            "lineHeight": 16,
-            "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
           }
         }
@@ -135,8 +131,6 @@ exports[`View 基本渲染 1`] = `
             "color": "red",
             "fontSize": 14,
             "fontWeight": "400",
-            "lineHeight": 15.400000000000002,
-            "paddingTop": 1.4000000000000001,
             "textAlign": undefined,
           }
         }
