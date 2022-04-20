@@ -156,6 +156,7 @@ export default (
   CSSObj = transform(CSSObj, {
     'width': win.width,
     'height':
+      appData.screenHeight ||
       win.height - appData.headerHeight - (StatusBar?.currentHeight || 0),
     'orientation': win.width > win.height ? 'landscape' : 'portrait',
     'aspect-ratio': win.width / win.height,

@@ -1,5 +1,6 @@
 const appData = {
   headerHeight: 0,
+  screenHeight: 0,
   navigatorProps: {} as any,
   tabBarNavigatorProps: {} as any,
   setPreviewImages: {} as (imgs: any[]) => void,
