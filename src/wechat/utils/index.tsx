@@ -17,4 +17,5 @@ export { default as getAccountInfoSync } from './getAccountInfoSync';
 export { default as setClipboardData } from './setClipboardData';
 export { default as showTabBar } from './showTabBar';
 export { default as hideTabBar } from './hideTabBar';
+export { default as makePhoneCall } from './makePhoneCall';
 export { navigateTo } from '../../one/utils';
