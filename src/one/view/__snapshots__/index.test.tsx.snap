@@ -8,7 +8,6 @@ exports[`View 基本渲染 1`] = `
   style={
     Object {
       "backgroundColor": "red",
-      "borderRadius": undefined,
       "display": "flex",
       "flexDirection": "column",
       "flexWrap": "nowrap",
@@ -74,7 +73,6 @@ exports[`View 基本渲染 1`] = `
       style={
         Object {
           "backgroundColor": "none",
-          "borderRadius": undefined,
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "wrap",
@@ -109,7 +107,6 @@ exports[`View 基本渲染 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "borderRadius": undefined,
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "wrap",

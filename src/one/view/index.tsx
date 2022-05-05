@@ -12,7 +12,6 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Dimensions,
   ScrollView,
   // Platform,
   TextInput,
@@ -34,8 +33,6 @@ TextInput.defaultProps = {
 };
 
 export const extendStyle = createContext(undefined as any as CSSProperties);
-
-const win = Dimensions.get('window');
 
 const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
   const isSrt = ['string', 'number'].includes(typeof children);
@@ -152,24 +149,32 @@ export default React.memo(
           obj.borderTopWidth = 0;
           delete obj.borderTop;
         }
-        const { borderRadius } = obj || {};
         return transformStyles({
           flexDirection: parentStyle === undefined ? 'column' : 'row',
           ...obj,
-          borderRadius: borderRadius?.includes?.('%')
-            ? (((!(parentStyle as any)?.width?.includes?.('%') &&
-                (parentStyle as any)?.width) ||
-                win.width) *
-                +borderRadius.replace('%', '')) /
-              100
-            : borderRadius,
         });
       }, [parentStyle, style]);
       let isFixed = style.position === 'fixed';
       const viewRef = useRef(null);
       useImperativeHandle(
         ref,
-        () => ({ view: viewRef.current, text: textRef.current }),
+        () => ({
+          view: {
+            current: {
+              // @ts-ignore
+              ...viewRef?.current,
+              setNativeProps: ({ style, ...props }: any) => {
+                style = transformStyles(style);
+                // @ts-ignore
+                viewRef?.current?.setNativeProps?.({
+                  ...props,
+                  style,
+                });
+              },
+            },
+          },
+          text: textRef,
+        }),
         []
       );
       // console.log(JSON.stringify(style));

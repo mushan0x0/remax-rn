@@ -165,5 +165,13 @@ export default (
   if (CSSObj.transform) {
     CSSObj.transform = Object.values(CSSObj.transform);
   }
+  if (CSSObj.borderRadius) {
+    const borderRadius = CSSObj.borderRadius;
+    CSSObj.borderRadius = borderRadius?.includes?.('%')
+      ? (((!CSSObj?.width?.includes?.('%') && CSSObj?.width) || win.width) *
+          +borderRadius.replace('%', '')) /
+        100
+      : borderRadius;
+  }
   return CSSObj;
 };

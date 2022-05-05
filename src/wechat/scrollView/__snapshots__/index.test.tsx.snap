@@ -26,7 +26,6 @@ exports[`Scroll 基本渲染 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "borderRadius": undefined,
           "display": "flex",
           "flexDirection": "column",
           "flexWrap": "nowrap",
@@ -58,7 +57,6 @@ exports[`Scroll 基本渲染 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "borderRadius": undefined,
           "display": "flex",
           "flexDirection": "column",
           "flexWrap": "nowrap",

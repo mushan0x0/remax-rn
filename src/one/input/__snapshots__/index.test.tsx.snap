@@ -8,7 +8,6 @@ exports[`Input 基本渲染 1`] = `
   style={
     Object {
       "backgroundColor": "red",
-      "borderRadius": undefined,
       "display": "flex",
       "flexDirection": "column",
       "flexWrap": "nowrap",
