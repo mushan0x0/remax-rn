@@ -35,6 +35,7 @@ describe('View', () => {
                 backgroundColor: 'red',
                 background: 'none',
               }}
+              ref={{ current: null }}
             >
               233
             </View>

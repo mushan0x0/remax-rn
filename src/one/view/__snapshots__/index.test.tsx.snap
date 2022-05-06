@@ -21,14 +21,15 @@ exports[`View 基本渲染 1`] = `
     }
   }
 >
-  <Text
+  <TextInput
     allowFontScaling={false}
     className="view"
+    editable={false}
     ellipsizeMode="tail"
     pointerEvents="none"
     style={
       Object {
-        "color": undefined,
+        "color": "#000",
         "fontSize": 26,
         "fontWeight": undefined,
         "textAlign": undefined,
@@ -36,7 +37,7 @@ exports[`View 基本渲染 1`] = `
     }
   >
     1
-  </Text>
+  </TextInput>
   <View
     activeOpacity={0.5}
     className="view"
@@ -83,9 +84,10 @@ exports[`View 基本渲染 1`] = `
         }
       }
     >
-      <Text
+      <TextInput
         allowFontScaling={false}
         className="view"
+        editable={false}
         ellipsizeMode="tail"
         numberOfLines={2}
         pointerEvents="none"
@@ -99,7 +101,7 @@ exports[`View 基本渲染 1`] = `
         }
       >
         233
-      </Text>
+      </TextInput>
     </View>
     <View
       activeOpacity={0.5}
@@ -120,6 +122,7 @@ exports[`View 基本渲染 1`] = `
       <Text
         allowFontScaling={false}
         className="view"
+        editable={false}
         ellipsizeMode="tail"
         numberOfLines={2}
         pointerEvents="none"

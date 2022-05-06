@@ -11,7 +11,7 @@ import React, {
 import {
   View,
   TouchableOpacity,
-  Text,
+  Text as ReactText,
   ScrollView,
   // Platform,
   TextInput,
@@ -24,7 +24,11 @@ import { usePortal } from 'parsec-hooks';
 import { rpxToPx } from '@kqinfo/ui';
 
 // @ts-ignore
-Text.defaultProps = { ...(Text.defaultProps || {}), allowFontScaling: false };
+ReactText.defaultProps = {
+  // @ts-ignore
+  ...(ReactText.defaultProps || {}),
+  allowFontScaling: false,
+};
 // @ts-ignore
 TextInput.defaultProps = {
   // @ts-ignore
@@ -32,9 +36,21 @@ TextInput.defaultProps = {
   allowFontScaling: false,
 };
 
+const Text = React.forwardRef((props: any, ref: any) => {
+  return ref ? (
+    <TextInput
+      ref={ref}
+      {...props}
+      style={{ ...props.style, color: props.style?.color || '#000' }}
+    />
+  ) : (
+    <ReactText {...props} />
+  );
+});
+
 export const extendStyle = createContext(undefined as any as CSSProperties);
 
-const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
+const ChildrenWrap = React.forwardRef(({ children }: any, ref) => {
   const isSrt = ['string', 'number'].includes(typeof children);
   const {
     fontSize = rpxToPx(26),
@@ -48,9 +64,10 @@ const ChildrenWrap = forwardRef(({ children }: any, ref: any) => {
     <NeedWrap
       need={isSrt}
       wrap={Text}
+      ref={ref}
       wrapProps={{
         className: styles.view,
-        ref,
+        editable: false,
         pointerEvents: 'none',
         style: {
           // paddingTop:
@@ -124,17 +141,17 @@ export default React.memo(
         }
       });
       style = transformStyles(style);
-      const textRef = useRef(null);
+      const textRef = useRef<any>(null);
       children = useMemo(() => {
         const fn = (children: any) =>
           children instanceof Array ? (
             children.map((item, i) => (
-              <ChildrenWrap ref={textRef} key={i}>
+              <ChildrenWrap ref={ref && textRef} key={i}>
                 {fn(item)}
               </ChildrenWrap>
             ))
           ) : (
-            <ChildrenWrap ref={textRef}>{children}</ChildrenWrap>
+            <ChildrenWrap ref={ref && textRef}>{children}</ChildrenWrap>
           );
         return fn(children);
       }, [children]);
@@ -156,27 +173,26 @@ export default React.memo(
       }, [parentStyle, style]);
       let isFixed = style.position === 'fixed';
       const viewRef = useRef(null);
-      useImperativeHandle(
-        ref,
-        () => ({
-          view: {
-            current: {
+      useImperativeHandle(ref, () => {
+        const getRef = (ref: any) => ({
+          current: {
+            // @ts-ignore
+            ...ref?.current,
+            setNativeProps: ({ style, ...props }: any) => {
+              style = transformStyles(style);
               // @ts-ignore
-              ...viewRef?.current,
-              setNativeProps: ({ style, ...props }: any) => {
-                style = transformStyles(style);
-                // @ts-ignore
-                viewRef?.current?.setNativeProps?.({
-                  ...props,
-                  style,
-                });
-              },
+              ref?.current?.setNativeProps?.({
+                ...props,
+                style,
+              });
             },
           },
-          text: textRef,
-        }),
-        []
-      );
+        });
+        return {
+          view: getRef(viewRef),
+          text: getRef(textRef),
+        };
+      });
       // console.log(JSON.stringify(style));
       parentStyle = {
         ...parentStyle,
@@ -212,8 +228,8 @@ export default React.memo(
                     onTap || onPress ? TouchableOpacity : isText ? Text : View
                   }
                   need
+                  ref={ref && (isText ? textRef : viewRef)}
                   wrapProps={{
-                    ref: viewRef,
                     className: styles.view,
                     onLayout,
                     onPress: (e: any) => {

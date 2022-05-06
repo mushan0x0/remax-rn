@@ -37,6 +37,7 @@ exports[`Scroll 基本渲染 1`] = `
       <Text
         allowFontScaling={false}
         className="view"
+        editable={false}
         ellipsizeMode="tail"
         pointerEvents="none"
         style={
@@ -68,6 +69,7 @@ exports[`Scroll 基本渲染 1`] = `
       <Text
         allowFontScaling={false}
         className="view"
+        editable={false}
         ellipsizeMode="tail"
         pointerEvents="none"
         style={
