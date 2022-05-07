@@ -41,7 +41,12 @@ const Text = React.forwardRef((props: any, ref: any) => {
     <TextInput
       ref={ref}
       {...props}
-      style={{ ...props.style, color: props.style?.color || '#000' }}
+      style={{
+        ...transformStyles(props.style),
+        color: props.style?.color || '#000',
+        padding: 0,
+        height: props.style?.lineHeight,
+      }}
     />
   ) : (
     <ReactText {...props} />

@@ -30,8 +30,12 @@ exports[`View 基本渲染 1`] = `
     style={
       Object {
         "color": "#000",
+        "display": "flex",
+        "flexWrap": "wrap",
         "fontSize": 26,
         "fontWeight": undefined,
+        "height": undefined,
+        "padding": 0,
         "textAlign": undefined,
       }
     }
@@ -94,8 +98,12 @@ exports[`View 基本渲染 1`] = `
         style={
           Object {
             "color": "red",
+            "display": "flex",
+            "flexWrap": "wrap",
             "fontSize": 14,
             "fontWeight": "400",
+            "height": undefined,
+            "padding": 0,
             "textAlign": undefined,
           }
         }
