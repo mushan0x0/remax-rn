@@ -7,6 +7,7 @@ import appData from '@/appData';
 import { getUnitRegexp, createPxReplace } from './pxToVw';
 // @ts-ignore
 import transformCSS from 'css-to-react-native';
+import { rpxToPx } from '@kqinfo/ui';
 
 type Styles = { [key: string]: React.CSSProperties };
 
@@ -161,6 +162,24 @@ export default (
     'orientation': win.width > win.height ? 'landscape' : 'portrait',
     'aspect-ratio': win.width / win.height,
     'type': 'screen',
+  });
+  Object.keys(CSSObj).forEach((key) => {
+    if (CSSObj[key] === undefined) {
+      delete CSSObj[key];
+      return;
+    }
+    const fontSize = CSSObj.fontSize;
+    if (key === 'lineHeight' && +CSSObj[key] && +CSSObj[key] < 10) {
+      if (+CSSObj[key] === 1) {
+        CSSObj[key] = +fontSize * 1.1;
+      } else {
+        CSSObj[key] = +CSSObj[key] * +(fontSize || 16) * 1.1;
+      }
+    }
+    if (/em/i.test(CSSObj[key])) {
+      const number = +CSSObj[key].replace(/em/i, '') * 1.1;
+      CSSObj[key] = number * (+fontSize ? +fontSize : rpxToPx(26));
+    }
   });
   if (CSSObj.transform) {
     CSSObj.transform = Object.values(CSSObj.transform);

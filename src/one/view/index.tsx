@@ -121,30 +121,7 @@ export default React.memo(
         ...className,
         ...style,
       };
-      Object.keys(style).forEach((key) => {
-        if (style[key] === undefined) {
-          delete style[key];
-          return;
-        }
-        if (key === 'lineHeight' && +style[key] && +style[key] < 10) {
-          if (+style[key] === 1) {
-            style[key] = +(style.fontSize || parentStyle?.fontSize || 16) * 1.1;
-          } else {
-            style[key] =
-              +style[key] *
-              +(style.fontSize || parentStyle?.fontSize || 16) *
-              1.1;
-          }
-        }
-        if (/em/i.test(style[key])) {
-          const number = +style[key].replace(/em/i, '') * 1.1;
-          style[key] =
-            number *
-            (+(typeof style.fontSize
-              ? style.fontSize
-              : (parentStyle as any)?.fontSize) || rpxToPx(26));
-        }
-      });
+      style.fontSize = style.fontSize || parentStyle?.fontSize;
       style = transformStyles(style);
       const textRef = useRef<any>(null);
       children = useMemo(() => {

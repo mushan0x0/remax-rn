@@ -29,7 +29,6 @@ exports[`Input 基本渲染 1`] = `
         "backgroundColor": "red",
         "display": "flex",
         "flexWrap": "wrap",
-        "fontSize": undefined,
         "height": 50,
         "paddingBottom": 0,
         "paddingLeft": 0,
